@@ -12,8 +12,8 @@ public class GrupoIG {
 
     public static void main(String[] args) {
         Jovem[] jovens = new Jovem[37];
-        Jovem[] jovensAtivos = new Jovem[25];
-        Jovem[] jovensNaoAtivos = new Jovem[13];
+        Jovem[] jovensAtivos = new Jovem[40];
+        Jovem[] jovensNaoAtivos = new Jovem[40];
         Scanner in = new Scanner(System.in);
         ArrayList<Jovem> listaDeJovens = new ArrayList<>();
         int matricula, a = 1, jovemAprox, j = 0, par, b = 0, band = 0, band2 = 1;
@@ -24,10 +24,10 @@ public class GrupoIG {
             a = in.nextInt();
             switch (a) {
                 case 1:
-                    while (b < 6) {
+                    while (b < 36) {
                         System.out.println("DIGITE O NOME DO JOVEM: ");
                         jovemNome = in.next();
-                        System.out.println("DIGITE A APROXIMACAO DO JOVEM COM A IGREJA: ");
+                        System.out.println("DIGITE A APROXIMACAO DO JOVEM "+j+" COM A IGREJA: ");
                         jovemAprox = in.nextInt();
                         jovens[j] = new Jovem(jovemNome, jovemAprox);
                         listaDeJovens.add(jovens[j]);
@@ -42,7 +42,7 @@ public class GrupoIG {
 
                     System.out.println("======");
                     System.out.println("JOVENS MENOS PROXIMOS: ");
-                    for (int i = 0; i < 2; i++) {
+                    for (int i = 0; i < 12; i++) {
                         jovensNaoAtivos[i] = listaDeJovens.get(i);
                         System.out.println(jovensNaoAtivos[i].getNome());
 
@@ -51,16 +51,17 @@ public class GrupoIG {
                     System.out.println("=======================");
 
                     System.out.println("JOVENS MAIS PROXIMOS: ");
-                    for (int i = 2; i < 6; i++) {
+                    for (int i = 12; i < 36; i++) {
                         jovensAtivos[i] = listaDeJovens.get(i);
                         System.out.println(jovensAtivos[i].getNome());
 
                     }
                     //Numero de grupos
-                    int o=2, l=0;
-                    for (int i = 0; i < 2; i++) {
-                        System.out.println("JOVENS ATIVOS:");
-                        while(o<6){
+                    int o=12, l=0;
+                    for (int i = 0; i < 12; i++) {
+                        System.out.println("GRUPO "+i);
+                        System.out.println("JOVENS QUE VAO ORAR UM PELO OUTRO:");
+                        while(o<36){
                             System.out.println(jovensAtivos[o].getNome()+" ");
                             if(l==1){
                                 System.out.println("VAO ORAR POR: ");
