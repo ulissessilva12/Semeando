@@ -16,7 +16,7 @@ public class GrupoIG {
         Jovem[] jovensNaoAtivos = new Jovem[40];
         Scanner in = new Scanner(System.in);
         ArrayList<Jovem> listaDeJovens = new ArrayList<>();
-        int matricula, a = 1, jovemAprox, j = 0, par, b = 0, band = 0, band2 = 1;
+        int matricula, a = 1, jovemAprox, j = 0, par, b = 0, band = 0, band2 = 1, ab=1;
         String jovemNome;
 
         while (a != 0) {
@@ -25,12 +25,13 @@ public class GrupoIG {
             switch (a) {
                 case 1:
                     while (b < 36) {
-                        System.out.println("DIGITE O NOME DO JOVEM: ");
+                        System.out.println("DIGITE O NOME DO JOVEM "+ab+" :");
                         jovemNome = in.next();
-                        System.out.println("DIGITE A APROXIMACAO DO JOVEM "+j+" COM A IGREJA: ");
+                        System.out.println("DIGITE A APROXIMACAO DO(A) " + jovemNome + " COM A IGREJA: ");
                         jovemAprox = in.nextInt();
                         jovens[j] = new Jovem(jovemNome, jovemAprox);
                         listaDeJovens.add(jovens[j]);
+                        ab++;
                         j++;
                         b++;
                     }
@@ -57,35 +58,36 @@ public class GrupoIG {
 
                     }
                     //Numero de grupos
-                    int o=12, l=0;
-                    for (int i = 0; i < 12; i++) {
-                        System.out.println("GRUPO "+i);
-                        System.out.println("JOVENS QUE VAO ORAR UM PELO OUTRO:");
-                        while(o<36){
-                            System.out.println(jovensAtivos[o].getNome()+" ");
-                            if(l==1){
-                                System.out.println("VAO ORAR POR: ");
-                                System.out.println(jovensNaoAtivos[i].getNome());
-                                l=0;
-                                break;
-                            }
-                            o++;
-                            l++;
-                        }
-                       o++;
+                    int o = 12, h=24, g=12, naoativo=0, l = 0;
+                    for (int i = 12; i < 24; i++) {
+                        System.out.println("==>"+jovensAtivos[i].getNome()+"<+==" + " Vai orar por: ");
+                        System.out.println(jovensAtivos[h].getNome());
+                        h++;
+                            System.out.println("E por: " + jovensNaoAtivos[naoativo].getNome());
+                            System.out.println("");
+                        naoativo++;
+                    }
+                    naoativo=11;
+                    for (int i = 35; i >= 24; i--) {
+                        System.out.println("==>"+jovensAtivos[i].getNome()+"<==" + " Vai orar por: ");
+                        System.out.println(jovensAtivos[g].getNome());
+                        g++;
+                            System.out.println("E por: " + jovensNaoAtivos[naoativo].getNome());
+                            System.out.println("");
+                            naoativo--;
                     }
                     break;
-
                 case 0:
                     System.out.println("VOCE SAIU!");
                     a = 0;
                     break;
+
                 default:
                     System.out.println("OPCAO NAO ENCONTRADA");
+                    break;
+
             }
 
         }
-
     }
-
 }
